@@ -15,5 +15,5 @@ COPY --from=builder --chown=appuser:appuser /usr/local/lib/python3.11/site-packa
 COPY --chown=appuser:appuser . .
 HEALTHCHECK --interval=30s --timeout=5s \
   CMD curl -f http://localhost/healthz || exit 1
-EXPOSE 8000
+EXPOSE 8080
 CMD ["python", "main.py", "--kubeconfig", "kubeconfig", "--address", ":8080"]
